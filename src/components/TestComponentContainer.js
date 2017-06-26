@@ -1,18 +1,33 @@
-
 import TestComponent from './TestComponent';
 import {connect} from 'react-redux';
-import {dummyAction} from '../actions/appActions';
+import {dummyAction, addPoint} from '../actions/appActions';
 
 function mapStateToProps(state) {
+  console.log(state);
+
+  const text = state.points.reduce(function(result, d, i) {
+      return result + ' ' + i + ': X' + d.x + ' Y' + d.y;
+    }, 'Points: ');
   return {
-    text: 'Action fired: ' + state.actionFired
+    text: text
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onClick() {
+    onClick(proxy, event) {
+      const offSetTop = proxy.target.getBoundingClientRect().top;
+      const offSetLeft = proxy.target.getBoundingClientRect().left;
+
+      const point = {
+        x: proxy.pageX - offSetLeft,
+        y: proxy.pageY - offSetTop
+      }
+
+      console.log(point);
+
       dispatch(dummyAction());
+      dispatch(addPoint(point));
     }
   }
 }

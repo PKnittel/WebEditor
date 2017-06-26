@@ -4,3 +4,10 @@ export function dummyAction() {
     type: 'DUMMY_ACTION',
   }
 }
+
+export function addPoint(point) {
+  return {
+    type: 'ADD_POINT',
+    payload: point
+  }
+}
