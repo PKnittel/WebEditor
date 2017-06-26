@@ -1,8 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const TestComponent = function(props) {
-  return (<div onClick={props.onClick}>
+const style = {
+  border: '2px solid black',
+  height: '400px'
+};
+
+export default function TestComponent(props) {
+  return (<div className="drawErea" onClick={props.onClick} style={style}>
       {props.text}
     </div>);
 }
@@ -10,5 +15,3 @@ const TestComponent = function(props) {
 TestComponent.propTypes = {
   text: PropTypes.string
 }
-
-export default TestComponent
