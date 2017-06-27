@@ -1,5 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
+import DrawAreaContainer from './drawArea/DrawAreaContainer';
 
 const style = {
   border: '2px solid black',
@@ -8,12 +9,12 @@ const style = {
 
 export default function TestComponent(props) {
   return (<div className="drawErea" onClick={props.onClick}>
-      {props.text}
-      <div style={style}>
-	      <svg height="300" width="1400">
-				  <path d={props.d} stroke='blue' fill='none'/>
-				</svg>
-			</div>
+      Drawcolor: {props.text} <br/>
+			<button type="button" onClick={props.changeColor.bind(this, 'blue')}>Blue</button>
+			<button type="button" onClick={props.changeColor.bind(this, 'green')}>Green</button>
+			<button type="button" onClick={props.changeColor.bind(this, 'red')}>Red</button>
+			<button type="button" onClick={props.changeColor.bind(this, 'black')}>Black</button>
+      <DrawAreaContainer/>
     </div>);
 }
 
