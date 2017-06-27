@@ -5,8 +5,9 @@ import {addPoint} from '../../actions/appActions';
 function mapStateToProps(state) {
   return {
     d: state.points.reduce(function(result, d, i) {
-      return result + ' L' + d.x + ' ' + d.y;
-    }, 'M0 0'),
+      const operation = i === 0 ? 'M' : ' L';
+      return result + operation + d.x + ' ' + d.y;
+    }, ''),
     color: state.color,
   }
 }
