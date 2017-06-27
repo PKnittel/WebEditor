@@ -8,8 +8,13 @@ function mapStateToProps(state) {
   const text = state.points.reduce(function(result, d, i) {
       return result + ' ' + i + ': X' + d.x + ' Y' + d.y;
     }, 'Points: ');
+
+  const path = state.points.reduce(function(result, d, i) {
+      return result + ' L' + d.x + ' ' + d.y;
+    }, 'M0 0');
   return {
-    text: text
+    text: text,
+    d: path,
   }
 }
 
