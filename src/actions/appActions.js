@@ -18,3 +18,9 @@ export function changeColor(color) {
     payload: color
   }
 }
+
+export function newPath() {
+  return {
+    type: 'NEW_PATH'
+  }
+}

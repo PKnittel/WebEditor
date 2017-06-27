@@ -1,6 +1,7 @@
 const appReducer = (state = {
   actionFired: false,
   sampleText: 'Test text',
+  pathes: [],
   points: [],
   color: 'black'
 }, action) => {
@@ -22,6 +23,19 @@ const appReducer = (state = {
       return {
         ...state,
         color: action.payload
+      }
+    }
+    case 'NEW_PATH': {
+      const currentPath = {
+        points: state.point,
+        color: state.color
+      };
+      const pathes = state.pathes;
+      pathes.push(currentPath);
+      return {
+        ...state,
+        pathes: pathes,
+        points: []
       }
     }
     default:

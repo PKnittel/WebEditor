@@ -9,11 +9,14 @@ const style = {
 
 export default function TestComponent(props) {
   return (<div className="drawErea" onClick={props.onClick}>
-      Drawcolor: {props.text} <br/>
+      Drawcolor: {props.text}
+      <br/>
 			<button type="button" onClick={props.changeColor.bind(this, 'blue')}>Blue</button>
 			<button type="button" onClick={props.changeColor.bind(this, 'green')}>Green</button>
 			<button type="button" onClick={props.changeColor.bind(this, 'red')}>Red</button>
 			<button type="button" onClick={props.changeColor.bind(this, 'black')}>Black</button>
+			<br/>
+			<button type="button" onClick={props.newPath}>Create New Path</button>
       <DrawAreaContainer/>
     </div>);
 }

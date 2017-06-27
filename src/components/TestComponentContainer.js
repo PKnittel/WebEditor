@@ -1,6 +1,6 @@
 import TestComponent from './TestComponent';
 import {connect} from 'react-redux';
-import {changeColor} from '../actions/appActions';
+import {changeColor, newPath} from '../actions/appActions';
 
 function mapStateToProps(state) {
   console.log(state);
@@ -16,6 +16,9 @@ function mapDispatchToProps(dispatch) {
   return {
     changeColor(color) {
       dispatch(changeColor(color));
+    },
+    newPath() {
+      dispatch(newPath());
     }
   }
 }
