@@ -3,18 +3,13 @@ import {connect} from 'react-redux';
 import {addPoint} from '../../actions/appActions';
 
 function mapStateToProps(state) {
-  let pathes = state.pathes;
-  pathes.push({
+  let pathes = state.pathes.concat([{
     points:state.points,
-    color: state.color
-  });
+    color: state.color,
+    fill: state.fill
+  }]);
 
   return {
-    d: state.points.reduce(function(result, d, i) {
-      const operation = i === 0 ? 'M' : ' L';
-      return result + operation + d.x + ' ' + d.y;
-    }, ''),
-    color: state.color,
     pathes: pathes,
   }
 }

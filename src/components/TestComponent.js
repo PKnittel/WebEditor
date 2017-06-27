@@ -17,6 +17,8 @@ export default function TestComponent(props) {
 			<button type="button" onClick={props.changeColor.bind(this, 'black')}>Black</button>
 			<br/>
 			<button type="button" onClick={props.newPath}>Create New Path</button>
+			<br/>
+			<button type="button" onClick={props.toggleFillFlag}>Toggle Fill Flag <br/> {props.fillFlag + ''}</button>
       <DrawAreaContainer/>
     </div>);
 }

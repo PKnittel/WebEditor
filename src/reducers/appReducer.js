@@ -3,7 +3,8 @@ const appReducer = (state = {
   sampleText: 'Test text',
   pathes: [],
   points: [],
-  color: 'black'
+  color: 'black',
+  fill: false
 }, action) => {
   switch (action.type) {
     case 'DUMMY_ACTION':
@@ -26,16 +27,21 @@ const appReducer = (state = {
       }
     }
     case 'NEW_PATH': {
-      const currentPath = {
-        points: state.point,
-        color: state.color
-      };
-      const pathes = state.pathes;
-      pathes.push(currentPath);
+      const pathes = state.pathes.concat({
+        points: state.points,
+        color: state.color,
+        fill: state.fill
+      });
       return {
         ...state,
         pathes: pathes,
         points: []
+      }
+    }
+    case 'TOGGLE_FILL_FLAG': {
+      return {
+        ...state,
+        fill: !state.fill
       }
     }
     default:

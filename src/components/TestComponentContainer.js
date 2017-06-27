@@ -1,6 +1,6 @@
 import TestComponent from './TestComponent';
 import {connect} from 'react-redux';
-import {changeColor, newPath} from '../actions/appActions';
+import {changeColor, newPath, toggleFillFlag} from '../actions/appActions';
 
 function mapStateToProps(state) {
   console.log(state);
@@ -9,6 +9,7 @@ function mapStateToProps(state) {
 
   return {
     text: text,
+    fillFlag: state.fill,
   }
 }
 
@@ -19,6 +20,9 @@ function mapDispatchToProps(dispatch) {
     },
     newPath() {
       dispatch(newPath());
+    },
+    toggleFillFlag() {
+      dispatch(toggleFillFlag());
     }
   }
 }

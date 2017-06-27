@@ -24,3 +24,9 @@ export function newPath() {
     type: 'NEW_PATH'
   }
 }
+
+export function toggleFillFlag() {
+  return {
+    type: 'TOGGLE_FILL_FLAG'
+  }
+}

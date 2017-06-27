@@ -18,14 +18,13 @@ function getSVGObjects(pathes){
   return pathes.map(function(element, i){
     if (!element.points) return '';
     const description = generateDescription(element.points);
-    return (<SVGObject d={description} stroke={element.color} fill='none'/>);
+    return (<SVGObject d={description} stroke={element.color} fill={element.fill ? element.color : 'none'}/>);
   });
 };
 
 export default function DrawArea(props) {
   return (<div className="drawErea" onClick={props.onClick} style={style}>
     <svg height="300" width="1400">
-		  <SVGObject d={props.d} stroke={props.color} fill='none'/>
       {getSVGObjects(props.pathes)}
 		</svg>
   </div>);
